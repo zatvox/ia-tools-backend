@@ -22,8 +22,8 @@ replicate_client = replicate.Client(api_token=REPLICATE_API_TOKEN)
 async def generar_imagen(request: PromptRequest):
     try:
         output = replicate_client.run(
-            "stability-ai/sdxl:latest",
-            input={"prompt": request.prompt}
+        "stability-ai/stable-diffusion",
+        input={"prompt": request.prompt}
         )
         if isinstance(output, list) and output:
             return {"image_url": output[0]}
