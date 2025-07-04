@@ -10,7 +10,7 @@ class PromptRequest(BaseModel):
     prompt: str
 
 # ✅ Cargar token de Replicate (puedes usar variables de entorno o ponerlo directo)
-REPLICATE_API_TOKEN = os.getenv("REPLICATE_API_TOKEN") or "TU_API_KEY_DE_REPLICATE"
+REPLICATE_API_TOKEN = os.getenv("REPLICATE_API_TOKEN") 
 
 if not REPLICATE_API_TOKEN:
     raise RuntimeError("Falta configurar REPLICATE_API_TOKEN")
