@@ -5,3 +5,4 @@ pydub
 librosa
 noisereduce
 soundfile
+numpy
