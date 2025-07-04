@@ -26,5 +26,5 @@ async def generar_imagen(request: PromptRequest):
             return {"image_url": output[0]}
         raise HTTPException(status_code=500, detail="No se pudo generar la imagen")
     except Exception as e:
+        print("❌ ERROR AL GENERAR IMAGEN:", str(e))
         raise HTTPException(status_code=500, detail=f"❌ ERROR AL GENERAR IMAGEN: {str(e)}")
-
