@@ -6,3 +6,4 @@ librosa
 noisereduce
 soundfile
 numpy
+replicate
