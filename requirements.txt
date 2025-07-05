@@ -7,3 +7,5 @@ noisereduce
 soundfile
 numpy
 replicate
+PyPDF2
+aiofiles
