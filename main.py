@@ -2,6 +2,8 @@ from fastapi import FastAPI, UploadFile, File
 from fastapi.responses import FileResponse
 from fastapi.middleware.cors import CORSMiddleware
 from generar_imagen import router as imagen_router
+from dividir_pdf import router as pdf_router
+from fastapi.staticfiles import StaticFiles
 import shutil
 import os
 import librosa
@@ -11,7 +13,7 @@ from uuid import uuid4
 
 app = FastAPI()
 
-# 🛡️ CORS CONFIGURACIÓN
+# 🛡️ CORS CONFIGURACIÓN |
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],  # Puedes cambiarlo por ["http://localhost:5173"] si quieres restringir
@@ -21,6 +23,8 @@ app.add_middleware(
 )
 
 app.include_router(imagen_router)
+app.include_router(pdf_router)
+app.mount("/archivos", StaticFiles(directory="temp_pdfs"), name="archivos")
 
 UPLOAD_DIR = "temp"
 os.makedirs(UPLOAD_DIR, exist_ok=True)
